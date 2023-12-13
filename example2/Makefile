@@ -17,6 +17,10 @@ serve:
 push:
 	spin registry push -f ./future/spin.toml devigned/spin-test:latest
 
+.PHONY: spin-run
+spin-run: push
+	spin up -f docker.io/devigned/spin-test:latest
+
 .PHONY: manifest
 manifest:
 	regctl manifest get docker.io/devigned/spin-test:latest
